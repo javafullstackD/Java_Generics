@@ -109,6 +109,55 @@ public class GenericStack <T>{
         Ans += String.valueOf(A.get(top));
         return Ans;
     }
+    
+    public class specificProperty {
+    public static <T extends Number> void coutMeth(T[] arr) {
+        int countFactor = 0;
+        int countPrime = 0;
+        int oddCount = 0;
+        int parCount = 0;
+
+        for (T item : arr) {
+            for (int i = 1; i <= item.intValue(); i++) {
+                if (item.intValue() % i == 0) {
+                    countFactor++;
+                }
+            }
+            if (countFactor == 2) {
+                countPrime++;
+            }
+            countFactor = 0;
+            if (!(item.intValue() % 2 == 0)) {
+                oddCount++;
+            }
+            int reminder, sum = 0, temp;
+            temp = item.intValue();
+            int temp2 = item.intValue();
+            while (temp2 > 0) {
+                reminder = temp2 % 10;
+                sum = (sum * 10) + reminder;
+                temp2 = temp2 / 10;
+            }
+            if (temp == sum) {
+                parCount++;
+            }
+        }
+
+        System.out.println("There are " + countPrime + " prime numbers");
+        System.out.println("There are " + oddCount + " odd numbers");
+        System.out.println("There are " + parCount);
+    }
+
+    public static void main(String[] args) {
+        Integer a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 111 };
+
+        coutMeth(a);
+
+    }
+}
+
+    
+    
 
     public static void main(String[] args) {
      
